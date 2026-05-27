@@ -135,7 +135,7 @@ function HeroIllustration() {
 
         {/* center heart */}
         <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
-          <div className="flex h-24 w-24 items-center justify-center rounded-3xl bg-primary text-primary-foreground shadow-soft">
+          <div className="flex h-20 w-20 items-center justify-center rounded-3xl bg-primary text-primary-foreground shadow-soft sm:h-24 sm:w-24">
             <Heart className="h-10 w-10 fill-current" />
           </div>
         </div>
