@@ -154,12 +154,12 @@ function WishlistCard({ item }: { item: (typeof wishlistItems)[number] }) {
   const pct = Math.min(100, Math.round((item.fulfilled / item.needed) * 100));
   return (
     <article
-      className={`flex gap-4 rounded-2xl border border-border/60 bg-card p-5 shadow-soft transition-all ${
+      className={`flex gap-3 rounded-2xl border border-border/60 bg-card p-4 shadow-soft transition-all sm:gap-4 sm:p-5 ${
         done ? "opacity-60" : "hover:-translate-y-0.5 hover:shadow-[0_8px_28px_rgba(0,0,0,0.08)]"
       }`}
     >
-      <div className={`flex h-16 w-16 shrink-0 items-center justify-center rounded-2xl text-3xl ${done ? "bg-mint-soft" : "bg-accent"}`}>
-        {done ? <CheckCircle2 className="h-7 w-7 text-primary" /> : item.emoji}
+      <div className={`flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl text-2xl sm:h-16 sm:w-16 sm:text-3xl ${done ? "bg-mint-soft" : "bg-accent"}`}>
+        {done ? <CheckCircle2 className="h-6 w-6 text-primary sm:h-7 sm:w-7" /> : item.emoji}
       </div>
       <div className="flex-1">
         <div className="flex items-start justify-between gap-2">
