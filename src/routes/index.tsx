@@ -115,7 +115,7 @@ function HeroIllustration() {
         </div>
 
         {/* floating card 2 */}
-        <div className="absolute bottom-6 right-4 w-60 rounded-2xl border border-border/60 bg-card p-4 shadow-soft">
+        <div className="absolute bottom-4 right-3 w-48 rounded-2xl border border-border/60 bg-card p-4 shadow-soft sm:bottom-6 sm:right-4 sm:w-60">
           <div className="flex items-center justify-between">
             <span className="inline-flex items-center gap-1 rounded-full bg-mint-soft px-2 py-0.5 text-[10px] font-semibold text-primary">
               <CheckCircle2 className="h-3 w-3" /> Donasi Terkirim
