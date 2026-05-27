@@ -189,7 +189,7 @@ function WishlistCard({ item }: { item: (typeof wishlistItems)[number] }) {
         </div>
 
         {!done && (
-          <div className="mt-4 grid grid-cols-2 gap-2">
+          <div className="mt-4 grid grid-cols-1 gap-2 sm:grid-cols-2">
             <Button variant="outline" size="sm" className="rounded-lg border-primary/30 text-primary hover:bg-accent">
               <Package className="h-4 w-4" /> Kirim Barang
             </Button>
