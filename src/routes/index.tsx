@@ -100,7 +100,7 @@ function HeroIllustration() {
 
       <div className="relative h-full w-full rounded-[36px] border border-border/60 bg-card/80 p-6 shadow-soft backdrop-blur">
         {/* floating card 1 */}
-        <div className="absolute left-4 top-6 w-56 rounded-2xl border border-border/60 bg-card p-4 shadow-soft">
+        <div className="absolute left-3 top-4 w-44 rounded-2xl border border-border/60 bg-card p-4 shadow-soft sm:left-4 sm:top-6 sm:w-56">
           <div className="flex items-center gap-3">
             <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-mint-soft text-lg">🍚</div>
             <div>
@@ -115,7 +115,7 @@ function HeroIllustration() {
         </div>
 
         {/* floating card 2 */}
-        <div className="absolute bottom-6 right-4 w-60 rounded-2xl border border-border/60 bg-card p-4 shadow-soft">
+        <div className="absolute bottom-4 right-3 w-48 rounded-2xl border border-border/60 bg-card p-4 shadow-soft sm:bottom-6 sm:right-4 sm:w-60">
           <div className="flex items-center justify-between">
             <span className="inline-flex items-center gap-1 rounded-full bg-mint-soft px-2 py-0.5 text-[10px] font-semibold text-primary">
               <CheckCircle2 className="h-3 w-3" /> Donasi Terkirim
@@ -135,7 +135,7 @@ function HeroIllustration() {
 
         {/* center heart */}
         <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
-          <div className="flex h-24 w-24 items-center justify-center rounded-3xl bg-primary text-primary-foreground shadow-soft">
+          <div className="flex h-20 w-20 items-center justify-center rounded-3xl bg-primary text-primary-foreground shadow-soft sm:h-24 sm:w-24">
             <Heart className="h-10 w-10 fill-current" />
           </div>
         </div>

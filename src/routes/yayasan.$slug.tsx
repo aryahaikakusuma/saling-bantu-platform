@@ -58,7 +58,7 @@ function YayasanDetail() {
         </Link>
 
         {/* Identity card */}
-        <div className="mt-2 -translate-y-16 rounded-3xl border border-border/60 bg-card p-6 shadow-soft sm:p-8">
+        <div className="mt-2 -translate-y-8 rounded-3xl border border-border/60 bg-card p-5 shadow-soft sm:-translate-y-16 sm:p-8">
           <div className="flex flex-col gap-5 sm:flex-row sm:items-start">
             <div className={`flex h-24 w-24 shrink-0 items-center justify-center rounded-3xl bg-gradient-to-br ${y.color} text-2xl font-bold ring-4 ring-card`}>
               {y.initials}
@@ -154,12 +154,12 @@ function WishlistCard({ item }: { item: (typeof wishlistItems)[number] }) {
   const pct = Math.min(100, Math.round((item.fulfilled / item.needed) * 100));
   return (
     <article
-      className={`flex gap-4 rounded-2xl border border-border/60 bg-card p-5 shadow-soft transition-all ${
+      className={`flex gap-3 rounded-2xl border border-border/60 bg-card p-4 shadow-soft transition-all sm:gap-4 sm:p-5 ${
         done ? "opacity-60" : "hover:-translate-y-0.5 hover:shadow-[0_8px_28px_rgba(0,0,0,0.08)]"
       }`}
     >
-      <div className={`flex h-16 w-16 shrink-0 items-center justify-center rounded-2xl text-3xl ${done ? "bg-mint-soft" : "bg-accent"}`}>
-        {done ? <CheckCircle2 className="h-7 w-7 text-primary" /> : item.emoji}
+      <div className={`flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl text-2xl sm:h-16 sm:w-16 sm:text-3xl ${done ? "bg-mint-soft" : "bg-accent"}`}>
+        {done ? <CheckCircle2 className="h-6 w-6 text-primary sm:h-7 sm:w-7" /> : item.emoji}
       </div>
       <div className="flex-1">
         <div className="flex items-start justify-between gap-2">
@@ -189,7 +189,7 @@ function WishlistCard({ item }: { item: (typeof wishlistItems)[number] }) {
         </div>
 
         {!done && (
-          <div className="mt-4 grid grid-cols-2 gap-2">
+          <div className="mt-4 grid grid-cols-1 gap-2 sm:grid-cols-2">
             <Button variant="outline" size="sm" className="rounded-lg border-primary/30 text-primary hover:bg-accent">
               <Package className="h-4 w-4" /> Kirim Barang
             </Button>
