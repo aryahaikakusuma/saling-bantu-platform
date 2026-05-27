@@ -100,7 +100,7 @@ function HeroIllustration() {
 
       <div className="relative h-full w-full rounded-[36px] border border-border/60 bg-card/80 p-6 shadow-soft backdrop-blur">
         {/* floating card 1 */}
-        <div className="absolute left-4 top-6 w-56 rounded-2xl border border-border/60 bg-card p-4 shadow-soft">
+        <div className="absolute left-3 top-4 w-44 rounded-2xl border border-border/60 bg-card p-4 shadow-soft sm:left-4 sm:top-6 sm:w-56">
           <div className="flex items-center gap-3">
             <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-mint-soft text-lg">🍚</div>
             <div>
