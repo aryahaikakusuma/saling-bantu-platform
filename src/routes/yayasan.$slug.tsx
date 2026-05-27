@@ -58,7 +58,7 @@ function YayasanDetail() {
         </Link>
 
         {/* Identity card */}
-        <div className="mt-2 -translate-y-16 rounded-3xl border border-border/60 bg-card p-6 shadow-soft sm:p-8">
+        <div className="mt-2 -translate-y-8 rounded-3xl border border-border/60 bg-card p-5 shadow-soft sm:-translate-y-16 sm:p-8">
           <div className="flex flex-col gap-5 sm:flex-row sm:items-start">
             <div className={`flex h-24 w-24 shrink-0 items-center justify-center rounded-3xl bg-gradient-to-br ${y.color} text-2xl font-bold ring-4 ring-card`}>
               {y.initials}
