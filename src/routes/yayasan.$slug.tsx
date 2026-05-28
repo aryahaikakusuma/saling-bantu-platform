@@ -40,6 +40,9 @@ export const Route = createFileRoute("/yayasan/$slug")({
 function YayasanDetail() {
   const { y } = Route.useLoaderData();
   const pct = Math.round((y.fulfilled / y.total) * 100);
+  const [donation, setDonation] = useState<{ mode: DonationMode; item?: WishlistItem } | null>(null);
+
+  const openDonation = (mode: DonationMode, item?: WishlistItem) => setDonation({ mode, item });
 
   return (
     <div className="min-h-screen bg-background">
