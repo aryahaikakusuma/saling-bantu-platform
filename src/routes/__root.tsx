@@ -77,6 +77,12 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { name: "description", content: "Platform donasi berbasis wishlist nyata dari yayasan terverifikasi." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
+      { property: "og:title", content: "SalingBantu — Donasi Tepat Sasaran" },
+      { name: "twitter:title", content: "SalingBantu — Donasi Tepat Sasaran" },
+      { property: "og:description", content: "Platform donasi berbasis wishlist nyata dari yayasan terverifikasi." },
+      { name: "twitter:description", content: "Platform donasi berbasis wishlist nyata dari yayasan terverifikasi." },
+      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/75564740-a87a-467e-97af-46092ac350bd/id-preview-f1faed52--82e861bc-b415-4edd-808a-0d5ace9d0008.lovable.app-1779950997627.png" },
+      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/75564740-a87a-467e-97af-46092ac350bd/id-preview-f1faed52--82e861bc-b415-4edd-808a-0d5ace9d0008.lovable.app-1779950997627.png" },
     ],
     links: [
       { rel: "stylesheet", href: appCss },
