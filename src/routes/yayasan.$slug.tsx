@@ -95,18 +95,21 @@ function YayasanDetail() {
 
         {/* Wishlist */}
         <section className="-mt-8">
-          <div className="flex items-end justify-between">
+          <div className="flex flex-wrap items-end justify-between gap-3">
             <div>
               <h2 className="text-2xl font-bold">Wishlist Kebutuhan</h2>
               <p className="mt-1 text-sm text-foreground/70">
                 Pilih item yang ingin kamu bantu. Kirim barangnya langsung atau donasi uang.
               </p>
             </div>
+            <Button onClick={() => openDonation("money")} className="rounded-lg">
+              <Wallet className="h-4 w-4" /> Donasi Dana ke Yayasan
+            </Button>
           </div>
 
           <div className="mt-6 grid gap-5 sm:grid-cols-2">
             {wishlistItems.map((item) => (
-              <WishlistCard key={item.name} item={item} />
+              <WishlistCard key={item.name} item={item} onDonate={openDonation} />
             ))}
           </div>
         </section>
