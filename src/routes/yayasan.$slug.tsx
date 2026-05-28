@@ -1,8 +1,10 @@
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
+import { useState } from "react";
 import { Navbar } from "@/components/site/Navbar";
 import { Footer } from "@/components/site/Footer";
 import { Button } from "@/components/ui/button";
-import { yayasans, wishlistItems, proofs } from "@/lib/dummy-data";
+import { DonationModal, type DonationMode } from "@/components/site/DonationModal";
+import { yayasans, wishlistItems, proofs, type WishlistItem } from "@/lib/dummy-data";
 import {
   BadgeCheck,
   MapPin,
