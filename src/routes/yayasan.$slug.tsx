@@ -1,8 +1,10 @@
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
+import { useState } from "react";
 import { Navbar } from "@/components/site/Navbar";
 import { Footer } from "@/components/site/Footer";
 import { Button } from "@/components/ui/button";
-import { yayasans, wishlistItems, proofs } from "@/lib/dummy-data";
+import { DonationModal, type DonationMode } from "@/components/site/DonationModal";
+import { yayasans, wishlistItems, proofs, type WishlistItem } from "@/lib/dummy-data";
 import {
   BadgeCheck,
   MapPin,
@@ -38,6 +40,9 @@ export const Route = createFileRoute("/yayasan/$slug")({
 function YayasanDetail() {
   const { y } = Route.useLoaderData();
   const pct = Math.round((y.fulfilled / y.total) * 100);
+  const [donation, setDonation] = useState<{ mode: DonationMode; item?: WishlistItem } | null>(null);
+
+  const openDonation = (mode: DonationMode, item?: WishlistItem) => setDonation({ mode, item });
 
   return (
     <div className="min-h-screen bg-background">
@@ -90,18 +95,21 @@ function YayasanDetail() {
 
         {/* Wishlist */}
         <section className="-mt-8">
-          <div className="flex items-end justify-between">
+          <div className="flex flex-wrap items-end justify-between gap-3">
             <div>
               <h2 className="text-2xl font-bold">Wishlist Kebutuhan</h2>
               <p className="mt-1 text-sm text-foreground/70">
                 Pilih item yang ingin kamu bantu. Kirim barangnya langsung atau donasi uang.
               </p>
             </div>
+            <Button onClick={() => openDonation("money")} className="rounded-lg">
+              <Wallet className="h-4 w-4" /> Donasi Dana ke Yayasan
+            </Button>
           </div>
 
           <div className="mt-6 grid gap-5 sm:grid-cols-2">
             {wishlistItems.map((item) => (
-              <WishlistCard key={item.name} item={item} />
+              <WishlistCard key={item.name} item={item} onDonate={openDonation} />
             ))}
           </div>
         </section>
@@ -135,6 +143,14 @@ function YayasanDetail() {
       </div>
 
       <Footer />
+
+      <DonationModal
+        open={donation !== null}
+        onOpenChange={(o) => !o && setDonation(null)}
+        mode={donation?.mode ?? "money"}
+        item={donation?.item}
+        yayasanName={y.name}
+      />
     </div>
   );
 }
@@ -149,7 +165,13 @@ function Stat({ label, value, sub }: { label: string; value: string; sub?: strin
   );
 }
 
-function WishlistCard({ item }: { item: (typeof wishlistItems)[number] }) {
+function WishlistCard({
+  item,
+  onDonate,
+}: {
+  item: (typeof wishlistItems)[number];
+  onDonate: (mode: DonationMode, item?: WishlistItem) => void;
+}) {
   const done = item.fulfilled >= item.needed;
   const pct = Math.min(100, Math.round((item.fulfilled / item.needed) * 100));
   return (
@@ -190,10 +212,15 @@ function WishlistCard({ item }: { item: (typeof wishlistItems)[number] }) {
 
         {!done && (
           <div className="mt-4 grid grid-cols-1 gap-2 sm:grid-cols-2">
-            <Button variant="outline" size="sm" className="rounded-lg border-primary/30 text-primary hover:bg-accent">
+            <Button
+              variant="outline"
+              size="sm"
+              className="rounded-lg border-primary/30 text-primary hover:bg-accent"
+              onClick={() => onDonate("goods", item)}
+            >
               <Package className="h-4 w-4" /> Kirim Barang
             </Button>
-            <Button size="sm" className="rounded-lg">
+            <Button size="sm" className="rounded-lg" onClick={() => onDonate("money", item)}>
               <Wallet className="h-4 w-4" /> Donasi Dana
             </Button>
           </div>
