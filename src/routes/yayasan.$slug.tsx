@@ -143,6 +143,14 @@ function YayasanDetail() {
       </div>
 
       <Footer />
+
+      <DonationModal
+        open={donation !== null}
+        onOpenChange={(o) => !o && setDonation(null)}
+        mode={donation?.mode ?? "money"}
+        item={donation?.item}
+        yayasanName={y.name}
+      />
     </div>
   );
 }
