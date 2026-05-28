@@ -165,7 +165,13 @@ function Stat({ label, value, sub }: { label: string; value: string; sub?: strin
   );
 }
 
-function WishlistCard({ item }: { item: (typeof wishlistItems)[number] }) {
+function WishlistCard({
+  item,
+  onDonate,
+}: {
+  item: (typeof wishlistItems)[number];
+  onDonate: (mode: DonationMode, item?: WishlistItem) => void;
+}) {
   const done = item.fulfilled >= item.needed;
   const pct = Math.min(100, Math.round((item.fulfilled / item.needed) * 100));
   return (
@@ -206,10 +212,15 @@ function WishlistCard({ item }: { item: (typeof wishlistItems)[number] }) {
 
         {!done && (
           <div className="mt-4 grid grid-cols-1 gap-2 sm:grid-cols-2">
-            <Button variant="outline" size="sm" className="rounded-lg border-primary/30 text-primary hover:bg-accent">
+            <Button
+              variant="outline"
+              size="sm"
+              className="rounded-lg border-primary/30 text-primary hover:bg-accent"
+              onClick={() => onDonate("goods", item)}
+            >
               <Package className="h-4 w-4" /> Kirim Barang
             </Button>
-            <Button size="sm" className="rounded-lg">
+            <Button size="sm" className="rounded-lg" onClick={() => onDonate("money", item)}>
               <Wallet className="h-4 w-4" /> Donasi Dana
             </Button>
           </div>
